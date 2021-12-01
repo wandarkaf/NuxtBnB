@@ -46,25 +46,28 @@ export default {
         }
     },
     publicRuntimeConfig:{
-        rootUrl: process.env.NODE_ENV === 'production' ? 'https://nuxtbnb.com' : 'http://localhost:3000',
+        rootUrl: process.env.NODE_ENV === 'production' ? process.env.BASE_URL_PRODUCTION : 'http://localhost:3000',
+        maps: {
+            key: process.env.GOOGLE_API_KEY
+        },
         auth:{
             cookieName: 'idToken',
-            clientId: '261771873987-d63fk0jh603nt8mi7sq7359kh1u0t2du.apps.googleusercontent.com',
+            clientId: process.env.GOOGLE_AUTH_CLIENT_ID,
         },
         algolia:{
-            appId: 'Q6IFH1VAUQ',
-            key:'929a498d223da96d79ee80fae0055203',
+            appId: process.env.ALGOLIA_APP_ID,
+            key: process.env.ALGOLIA_PUBLIC_KEY,
         },
         cloudinary:{
-            apiKey: '296271252567571',
+            apiKey: process.env.CLOUDINARY_API_KEY,
         },
         stripe:{
-            key: "pk_test_51J8GecKgahg7NWo8nsIuypsePpQz0vRgczo9nN6QBo7qvXzHXAE9xPQkX8ivjs1OW947W9HGyUlO3bNJH1VzfwIO00xZSy1h4X",
+            key: process.env.STRIPE_PUBLIC_KEY,
         },
     },
     privateRuntimeConfig:{
         algolia:{
-            appId: 'Q6IFH1VAUQ',
+            appId: process.env.ALGOLIA_APP_ID,
             key: process.env.ALGOLIA_SECRET_KEY,
         },
         cloudinary:{
